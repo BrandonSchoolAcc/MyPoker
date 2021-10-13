@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Deck{
 
-  private ArrayList<Card> cards = new ArrayList<Card>
+  private ArrayList<Card> cards = new ArrayList<Card>();
 
   Deck(){
 
@@ -12,6 +12,15 @@ public class Deck{
 
       }
     }
+  }
+
+  public Card dealCard(){
+    Random rand = new Random();
+    int temp = rand.nextInt(52);
+    Card givenCard = cards.get(temp);
+    cards.remove(temp);
+    return givenCard;
+
   }
 
   // 52 cards from 4 suits
