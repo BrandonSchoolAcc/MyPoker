@@ -9,12 +9,12 @@ class Main {
 
     //collect players
 
-    Player p1 = new Player("Hue G. Rection",40);
-    Player p2 = new Player("Ben Dover",40);
-    Player p3 = new Player("Moe Lester",40);
-    Player p4 = new Player("Mike Hawk",40);
+    Player p1 = new Player("Player 1",40);
+    Player p2 = new Player("Player 2",40);
+    Player p3 = new Player("Player 3",40);
+    Player p4 = new Player("Player 4",40);
 
-    Player[] myArrayOfPlayers = {p1,p2,p3,p4};
+    Player[] myArrayOfPlayers = {p1,p2,p3};
 
 
     Game myGame = new Game(myArrayOfPlayers, myWinner, mydeck);

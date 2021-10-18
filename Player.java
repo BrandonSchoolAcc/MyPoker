@@ -4,7 +4,8 @@ import java.awt.*;
 public class Player{
   int cash;
   String name;
-  Card heldCard;
+  Card heldCard1;
+  Card heldCard2;
   public Player(String name, int cash){
     this.cash = cash;
     this.name = name;
@@ -18,52 +19,39 @@ public class Player{
     return this.name;
   }
 
-  public int getValue(){
-    if(this.heldCard.getRank() == 0){
-      return 14;
+  public int getValue(int card){
+    if(card == 1){
+      return heldCard1.getValue();
     }
     else{
-      return this.heldCard.getRank();
-    }
-    
-  }
-
-  public String getCardRank(){
-    switch(this.heldCard.getRank()){
-      case 0:
-        return "A";
-      case 10:
-        return "J";
-      case 11:
-        return "Q";
-      case 12:
-        return "K";
-      default:
-        return ""+(this.heldCard.getRank() + 1);
+      return heldCard2.getValue();
     }
   }
 
-  public void setCard(Card givenCard){
-    this.heldCard = givenCard;
+  public String getCardRank(int card){
+    if(card == 1){
+      return heldCard1.getRank();
+    }
+    else{
+      return heldCard2.getRank();
+    }
   }
 
-  public String getCardSymbol(){
-    String suitSymbol = "";
-    switch(heldCard.getSuit()){
-      case(0):
-        suitSymbol = "♣";
-        break;
-      case(1):
-        suitSymbol = "♥";
-        break;
-      case(2):
-        suitSymbol = "♠";
-        break;
-      case(3):
-        suitSymbol = "♦";
-        break;
+  public void setCard1(Card givenCard){
+    this.heldCard1 = givenCard;
+  }
+
+  public void setCard2(Card givenCard){
+    this.heldCard2 = givenCard;
+  }
+
+  public String getCardSymbol(int card){
+    if(card == 1){
+      return heldCard1.getSymbol();
     }
-    return suitSymbol;
+    else{
+      return heldCard2.getSymbol();
+    }
   }
 
   public void addCash(int amount){

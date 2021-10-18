@@ -15,7 +15,7 @@ public class Game{
 
 
     boolean play = false;
-    System.out.print("Do yo want to play? ");
+    System.out.print("Do (y)ou want to play or (n)ot? ");
     if(scn.next().charAt(0) == 'y'){
       play = true;
     }
@@ -41,10 +41,24 @@ public class Game{
 
   }
 
+  public void texasHoldEm(Scanner scn){
+    Card[] table = new Card[5];
+    for(int i = 0; i < table.length; i++){
+      table[i] = deck.dealCard();
+    }
+
+    for(int i = 0; i < players.length; i++){
+      this.players[i].setCard1(deck.dealCard());
+      this.players[i].setCard2(deck.dealCard());
+    }
+
+    
+  }
+
   private void highCard(Scanner scn){
     
     for(int i = 0; i < players.length; i++){
-      this.players[i].setCard(deck.dealCard());
+      this.players[i].setCard1(deck.dealCard());
     }
     for(int i = 0; i < players.length; i++){
 
@@ -54,8 +68,8 @@ public class Game{
         System.out.println(players[j].getName() 
         + ": $" + players[j].getCash());
         if(i == j){
-          System.out.println(players[j].getCardSymbol() 
-          + players[j].getCardRank());
+          System.out.println(players[j].getCardSymbol(1) 
+          + players[j].getCardRank(1));
         }
         else{
           System.out.println("XX");
@@ -91,12 +105,12 @@ public class Game{
     //Arrays.sort(winner.getValue());
     //return winner[winner.length - 1];
 
-    int highCard = players[0].getValue();
+    int highCard = players[0].getValue(1);
     Player winner = players[0];
     for(int i = 0; i < players.length; i++){
 
-      if(players[i].getValue() > highCard){
-        highCard = players[i].getValue();
+      if(players[i].getValue(1) > highCard){
+        highCard = players[i].getValue(1);
         winner = players[i];
       }
 
