@@ -12,6 +12,8 @@ public class Card{
     return this.rank;
   }
 
-  
+  public int getSuit(){
+    return this.suit;
+  }
 
 }

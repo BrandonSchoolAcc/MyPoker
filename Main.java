@@ -9,10 +9,10 @@ class Main {
 
     //collect players
 
-    Player p1 = new Player("dog",40);
-    Player p2 = new Player("cat",40);
-    Player p3 = new Player("fish",40);
-    Player p4 = new Player("duck",40);
+    Player p1 = new Player("Hue G. Rection",40);
+    Player p2 = new Player("Ben Dover",40);
+    Player p3 = new Player("Moe Lester",40);
+    Player p4 = new Player("Mike Hawk",40);
 
     Player[] myArrayOfPlayers = {p1,p2,p3,p4};
 
