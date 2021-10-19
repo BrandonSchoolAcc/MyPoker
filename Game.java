@@ -22,7 +22,8 @@ public class Game{
 
     if(play){
       while(play == true){
-        highCard(scn);
+        //highCard(scn);
+        texasHoldEm(scn);
         System.out.print("Do you want to play again? ");
         if(scn.next().charAt(0) == 'y'){
         play = true;
@@ -30,7 +31,7 @@ public class Game{
         else play = false;
       }
     }
-    else System.out.println("sadge");
+    else System.out.println("bruh");
     
   }
 
@@ -52,7 +53,95 @@ public class Game{
       this.players[i].setCard2(deck.dealCard());
     }
 
-    
+    for(int k = 0; k < 4; k++){
+
+      for(int i = 0; i < players.length; i++){
+
+        System.out.println("Pot: " + pot);
+        System.out.println();
+        switch(k){
+          case 0:
+            System.out.println("Table:");
+            break;
+          case 1:
+            System.out.print("Table:");
+            for(int l = 0; l < 3; l++){
+              System.out.print(" " + table[l].getSymbol() 
+              + table[l].getRank());
+            }
+            break;
+          case 2:
+            System.out.print("Table:");
+            for(int l = 0; l < 4; l++){
+              System.out.print(" " + table[l].getSymbol() 
+              + table[l].getRank());
+            }
+            break;
+          case 3:
+            System.out.print("Table:");
+            for(int l = 0; l < 5; l++){
+              System.out.print(" " + table[l].getSymbol() 
+              + table[l].getRank());
+            }
+            break;
+        }
+        System.out.println();
+
+        for(int j = 0; j < players.length; j++){
+          System.out.println(players[j].getName() 
+          + ": $" + players[j].getCash());
+          if(i == j){
+            System.out.println(players[j].getCardSymbol(1) 
+            + players[j].getCardRank(1) + " " 
+            + players[j].getCardSymbol(2) 
+            + players[j].getCardRank(2));
+          }
+          else{
+            System.out.println("XX XX");
+          }
+        }
+
+        if(players[i].getCash() > 0){
+          System.out.print("Bet: ");
+          int userInput = scn.nextInt();
+
+          while(userInput > players[i].getCash()){
+            System.out.print("Bet less: ");
+            userInput = scn.nextInt();
+          }
+
+          makeBet(players[i], userInput);
+        }
+        System.out.println();
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush(); 
+      }
+    }
+
+      
+  }
+
+
+  private void texasWinner(Card[] table){
+    /*
+    1-13 higcard 2-A
+    13-26 one pair 2-A
+    27-39 two pair 2-A
+    40-52 three of a kind 2-A
+    53-65 straight 2-A
+    66-78 flush 2-A
+    79-92 full house 2-A
+    93-105 4 of a kind 2-A
+    106-118 straight flush 2-A
+    119 royal flush
+    */
+    for(int i = 0; i < players.length; i++){
+
+
+
+    }
+
   }
 
   private void highCard(Scanner scn){
@@ -81,7 +170,7 @@ public class Game{
         int userInput = scn.nextInt();
 
         while(userInput > players[i].getCash()){
-          System.out.print("Bet less shitass: ");
+          System.out.print("Bet less: ");
           userInput = scn.nextInt();
         }
 
@@ -94,6 +183,7 @@ public class Game{
     }
 
     highCardWinner();
+    // winner gets card
 
   }
 

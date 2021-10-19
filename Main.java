@@ -14,7 +14,7 @@ class Main {
     Player p3 = new Player("Player 3",40);
     Player p4 = new Player("Player 4",40);
 
-    Player[] myArrayOfPlayers = {p1,p2,p3};
+    Player[] myArrayOfPlayers = {p1,p2,p3,p4};
 
 
     Game myGame = new Game(myArrayOfPlayers, myWinner, mydeck);

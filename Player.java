@@ -6,6 +6,8 @@ public class Player{
   String name;
   Card heldCard1;
   Card heldCard2;
+  int score;
+  
   public Player(String name, int cash){
     this.cash = cash;
     this.name = name;
@@ -60,6 +62,14 @@ public class Player{
 
   public void removeCash(int amount){
     this.cash -= amount;
+  }
+
+  public void setScore(int givenScore){
+    this.score = givenScore;
+  }
+
+  public int getScore(){
+    return this.score;
   }
 
 }
