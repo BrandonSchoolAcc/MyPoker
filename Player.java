@@ -6,7 +6,7 @@ public class Player{
   String name;
   Card heldCard1;
   Card heldCard2;
-  int score;
+  boolean fold = false;
   
   public Player(String name, int cash){
     this.cash = cash;
@@ -64,12 +64,12 @@ public class Player{
     this.cash -= amount;
   }
 
-  public void setScore(int givenScore){
-    this.score = givenScore;
+  public void setFold(boolean givenFold){
+    this.fold = givenFold;
   }
 
-  public int getScore(){
-    return this.score;
+  public boolean getFold(){
+    return this.fold;
   }
 
 }
